@@ -54,12 +54,6 @@ mvn spring-boot:run
 
 > The project dependencies will be downloaded when running the app for the first time.
 
-Navigate to <http://localhost:8080/> or <http://localhost:8080/home> to view the home page.
-
-<img src="/assets/img/blog/post/spring-boot-getting-started/home.png" alt="Home page">
-
-Navigate to a different subdirectory to view the error page, e.g. <http://localhost:8080/invalid>.
-
-<img src="/assets/img/blog/post/spring-boot-getting-started/error.png" alt="Error page">
+Navigate to <http://localhost:8080/> or <http://localhost:8080/home> to view the home page. Navigate to a different subdirectory to view the error page, e.g. <http://localhost:8080/invalid>.
 
 To stop the server, go back to the terminal window and press `ctrl + C`.
