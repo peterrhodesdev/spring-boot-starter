@@ -22,8 +22,7 @@ public class SbstarterApplication {
         return "<h1>Spring Boot starter</h1>";
     }
 
-	public static void main(String[] args) {
-		SpringApplication.run(SbstarterApplication.class, args);
-	}
-
+    public static void main(String[] args) {
+        SpringApplication.run(SbstarterApplication.class, args);
+    }
 }
