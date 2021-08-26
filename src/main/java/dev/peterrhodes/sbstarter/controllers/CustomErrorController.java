@@ -16,16 +16,20 @@ public class CustomErrorController implements ErrorController  {
         Object attribute = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
         HttpStatus errorStatusCode = attribute != null ? HttpStatus.resolve(Integer.valueOf(attribute.toString())) : null;
 
+        String errorMessage;
         if (errorStatusCode != null) {
             switch (errorStatusCode) {
                 case NOT_FOUND:
-                    return "Resource not found";
+                    errorMessage = "Resource not found";
+                    break;
                 default:
-                    return defaultHttpStatusErrorMessage(errorStatusCode);
+                    errorMessage = defaultHttpStatusErrorMessage(errorStatusCode);
             }
+        } else {
+            errorMessage = "Error";
         }
 
-        return "Error";
+        return "<h1>" + errorMessage + "</h1><a href=\"/\">Home</a>";
     }
 
     private String defaultHttpStatusErrorMessage(HttpStatus httpStatus) {
