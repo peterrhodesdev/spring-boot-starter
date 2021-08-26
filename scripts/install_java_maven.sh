@@ -3,11 +3,14 @@
 # Install Java OpenJDK
 
 JAVA_OPEN_JDK_VERSION=11
+JAVA_OPEN_JDK_PATH="/usr/lib/jvm/java-${JAVA_OPEN_JDK_VERSION}-openjdk-amd64"
 
 sudo add-apt-repository ppa:openjdk-r/ppa \
 && sudo apt update \
 && sudo apt install openjdk-${JAVA_OPEN_JDK_VERSION}-jdk \
-&& sudo sh -c "echo export JAVA_HOME=/usr/lib/jvm/java-${JAVA_OPEN_JDK_VERSION}-openjdk-amd64 >> /etc/profile"
+&& sudo sh -c "echo export JAVA_HOME=${JAVA_OPEN_JDK_PATH} >> /etc/profile" \
+&& sudo update-alternatives --set java ${JAVA_OPEN_JDK_PATH}/bin/java \
+&& sudo update-alternatives --set javac ${JAVA_OPEN_JDK_PATH}/bin/javac
 
 if [ $? -eq 0 ]; then
   echo "SUCCESS: Java OpenJDK installed successfully"
